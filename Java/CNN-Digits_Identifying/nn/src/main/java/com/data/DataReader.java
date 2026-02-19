@@ -31,7 +31,7 @@ public class DataReader {
                 int i = 1;
                 for (int row = 0; row < rows; row++) {
                     for (int col = 0; col < columns; col++) {
-                        data[row][col] = Integer.parseInt(lineItems[i]) / 255.0;
+                        data[row][col] = Integer.parseInt(lineItems[i]);
                         i++;
                     }
                 }

@@ -3,7 +3,7 @@ package com.layers;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MaxPoolLayer extends Layer{
+public class MaxPoolLayer extends Layer {
 
     private final int _stepSize;
     private final int _windowSize;
@@ -11,6 +11,9 @@ public class MaxPoolLayer extends Layer{
     private final int _inLength;
     private final int _inRows;
     private final int _inColumns;
+
+    List<int[][]> _lastMaxRow;
+    List<int[][]> _lastMaxColumn;
 
     public MaxPoolLayer(int _stepSize, int _windowSize, int _inLength, int _inRows, int _inColumns) {
         this._stepSize = _stepSize;
@@ -22,22 +25,48 @@ public class MaxPoolLayer extends Layer{
 
     @Override
     public double[] getOutput(List<double[][]> input) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        List<double[][]> outputPool = maxPoolForwardPass(input);
+
+        return _nextLayer.getOutput(outputPool);
     }
 
     @Override
     public double[] getOutput(double[] input) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        List<double[][]> matrixList = vectorToMatrix(input, _inLength, _inRows, _inColumns);
+        return getOutput(matrixList);
     }
 
     @Override
     public void backPropagation(List<double[][]> dld0) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        List<double[][]> dxdl = new ArrayList<>();
+
+        int l = 0;
+
+        for (double[][] array : dld0) {
+            double[][] error = new double[_inRows][_inColumns];
+
+            for (int r = 0; r < getOutputRows(); r++) {
+                for (int c = 0; c < getOutputColumns(); c++) {
+                    int max_i = _lastMaxRow.get(l)[r][c];
+                    int max_j = _lastMaxColumn.get(l)[r][c];
+
+                    if (max_i != -1) {
+                        error[max_i][max_j] += array[r][c];
+                    }
+                }
+            }
+            dxdl.add(error);
+            l++;
+        }
+        if (_previousLayer != null) {
+            _previousLayer.backPropagation(dxdl);
+        }
     }
 
     @Override
     public void backPropagation(double[] dld0) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        List<double[][]> matrixList = vectorToMatrix(dld0, getOutputLength(), getOutputRows(), getOutputColumns());
+        backPropagation(matrixList);
     }
 
     @Override
@@ -47,12 +76,12 @@ public class MaxPoolLayer extends Layer{
 
     @Override
     public int getOutputRows() {
-        return (_inRows-_windowSize)/_stepSize + 1;
+        return (_inRows - _windowSize) / _stepSize + 1;
     }
 
     @Override
     public int getOutputColumns() {
-        return (_inColumns-_windowSize)/_stepSize + 1;
+        return (_inColumns - _windowSize) / _stepSize + 1;
     }
 
     @Override
@@ -62,6 +91,8 @@ public class MaxPoolLayer extends Layer{
 
     public List<double[][]> maxPoolForwardPass(List<double[][]> input) {
         List<double[][]> output = new ArrayList<>();
+        _lastMaxRow = new ArrayList<>();
+        _lastMaxColumn = new ArrayList<>();
 
         for (int i = 0; i < input.size(); i++) {
             output.add(pool(input.get(i)));
@@ -73,18 +104,30 @@ public class MaxPoolLayer extends Layer{
     public double[][] pool(double[][] input) {
         double[][] output = new double[getOutputRows()][getOutputColumns()];
 
+        int[][] maxRows = new int[getOutputRows()][getOutputColumns()];
+        int[][] maxColumns = new int[getOutputRows()][getOutputColumns()];
+
         for (int r = 0; r < getOutputRows(); r += _stepSize) {
-            for (int c = 0; c < getOutputColumns(); c =+ _stepSize) {
+            for (int c = 0; c < getOutputColumns(); c = +_stepSize) {
                 double max = 0.0;
+
+                maxRows[r][c] = -1;
+                maxColumns[r][c] = -1;
 
                 for (int x = 0; x < _windowSize; x++) {
                     for (int y = 0; y < _windowSize; y++) {
-                        max = (max < input[r+x][c+y]) ? input[r+x][c+y] : max;
+                        if (max < input[r + x][c + y]) {
+                            max = input[r + x][c + y];
+                            maxRows[r][c] = r + x;
+                            maxColumns[r][c] = c + y;
+                        }
                     }
                 }
                 output[r][c] = max;
             }
         }
+        _lastMaxRow.add(maxRows);
+        _lastMaxColumn.add(maxColumns);
         return output;
     }
 }

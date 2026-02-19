@@ -22,7 +22,7 @@ public class FullyConnectedLayer extends Layer {
         this.SEED = SEED;
         this._learningRate = _learningRate;
 
-        this._weights = new double[_outLength][_outLength];
+        this._weights = new double[_inLength][_outLength];
         setRandomWeights();
     }
 
