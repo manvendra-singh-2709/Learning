@@ -1,3 +1,10 @@
-/Users/manvendrasingh/PhD/Learning/Java/CNN-Digits_Identifying/nn/src/main/java/com/cnn/Main.java
-/Users/manvendrasingh/PhD/Learning/Java/CNN-Digits_Identifying/nn/src/main/java/com/data/DataReader.java
-/Users/manvendrasingh/PhD/Learning/Java/CNN-Digits_Identifying/nn/src/main/java/com/data/Image.java
+/mnt/D/Work/Learning/Java/CNN-Digits_Identifying/nn/src/main/java/com/cnn/CNN.java
+/mnt/D/Work/Learning/Java/CNN-Digits_Identifying/nn/src/main/java/com/data/DataReader.java
+/mnt/D/Work/Learning/Java/CNN-Digits_Identifying/nn/src/main/java/com/data/Image.java
+/mnt/D/Work/Learning/Java/CNN-Digits_Identifying/nn/src/main/java/com/data/MatrixUtility.java
+/mnt/D/Work/Learning/Java/CNN-Digits_Identifying/nn/src/main/java/com/layers/ConvolutionLayer.java
+/mnt/D/Work/Learning/Java/CNN-Digits_Identifying/nn/src/main/java/com/layers/FullyConnectedLayer.java
+/mnt/D/Work/Learning/Java/CNN-Digits_Identifying/nn/src/main/java/com/layers/Layer.java
+/mnt/D/Work/Learning/Java/CNN-Digits_Identifying/nn/src/main/java/com/layers/MaxPoolLayer.java
+/mnt/D/Work/Learning/Java/CNN-Digits_Identifying/nn/src/main/java/com/network/NetworkBuilder.java
+/mnt/D/Work/Learning/Java/CNN-Digits_Identifying/nn/src/main/java/com/network/NeuralNetwork.java

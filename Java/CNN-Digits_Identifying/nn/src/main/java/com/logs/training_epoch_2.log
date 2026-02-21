@@ -1,0 +1,9 @@
+Logging initialized at: /mnt/D/Work/Learning/Java/CNN-Digits_Identifying/nn/src/main/java/com/logs/training_epoch_2.log
+Starting data loading...
+
+Initializing new network...
+Starting training...
+Epoch: 1 | Success Rate: 0.9689 | Time: 19166ms
+Epoch: 2 | Success Rate: 0.9759 | Time: 19024ms
+Model saved successfully.
+Final success rate: 0.9759

@@ -1,0 +1,7 @@
+Logging initialized at: /mnt/D/Work/Learning/Java/CNN-Digits_Identifying/nn/src/main/java/com/logs/training_epoch_10.log
+Starting data loading...
+
+Loading model from: /mnt/D/Work/Learning/Java/CNN-Digits_Identifying/nn/src/main/java/com/model/model_epoch_10.bin
+Failed to load model: writing aborted; java.io.NotSerializableException: com.network.NeuralNetwork
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "com.network.NeuralNetwork.test(java.util.List)" because "net" is null
+	at com.cnn.Main.main(Main.java:68)

@@ -1,0 +1,27 @@
+Logging initialized at: /mnt/D/Work/Learning/Java/CNN-Digits_Identifying/nn/src/main/java/com/logs/training_epoch_20.log
+Starting data loading...
+
+Initializing new network...
+Starting training...
+Epoch: 1 | Success Rate: 0.875 | Time: 19359ms
+Epoch: 2 | Success Rate: 0.8825 | Time: 19178ms
+Epoch: 3 | Success Rate: 0.9793 | Time: 19179ms
+Epoch: 4 | Success Rate: 0.981 | Time: 19281ms
+Epoch: 5 | Success Rate: 0.982 | Time: 19275ms
+Epoch: 6 | Success Rate: 0.9824 | Time: 19236ms
+Epoch: 7 | Success Rate: 0.9819 | Time: 19119ms
+Epoch: 8 | Success Rate: 0.9826 | Time: 19230ms
+Epoch: 9 | Success Rate: 0.9829 | Time: 19203ms
+Epoch: 10 | Success Rate: 0.9837 | Time: 19200ms
+Epoch: 11 | Success Rate: 0.983 | Time: 19196ms
+Epoch: 12 | Success Rate: 0.9835 | Time: 19346ms
+Epoch: 13 | Success Rate: 0.9834 | Time: 19241ms
+Epoch: 14 | Success Rate: 0.9835 | Time: 19322ms
+Epoch: 15 | Success Rate: 0.9835 | Time: 19340ms
+Epoch: 16 | Success Rate: 0.9838 | Time: 19277ms
+Epoch: 17 | Success Rate: 0.984 | Time: 19289ms
+Epoch: 18 | Success Rate: 0.9841 | Time: 19311ms
+Epoch: 19 | Success Rate: 0.9838 | Time: 19311ms
+Epoch: 20 | Success Rate: 0.9822 | Time: 19258ms
+Model saved successfully.
+Final success rate: 0.9822
