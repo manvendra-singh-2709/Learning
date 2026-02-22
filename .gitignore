@@ -3,3 +3,5 @@ Pytorch/CampusX/fashion-mnist_train.csv
 *.csv
 /.metadata/
 *.csv
+*.model
+/target/
