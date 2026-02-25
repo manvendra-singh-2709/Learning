@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>djl</groupId>
+	<artifactId>djl-benchmark</artifactId>
+	<version>1.0</version>
+
+	<properties>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+		<djl.version>0.26.0</djl.version>
+		<pytorch.version>2.1.0</pytorch.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>djl-repo</id>
+			<url>https://publish.djl.ai</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>ai.djl.pytorch</groupId>
+			<artifactId>pytorch-engine</artifactId>
+			<version>0.36.0</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>ai.djl.pytorch</groupId>
+			<artifactId>pytorch-native-cu124</artifactId>
+			<version>2.5.1</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>ai.djl.pytorch</groupId>
+			<artifactId>pytorch-jni</artifactId>
+			<version>2.7.1-0.36.0</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.36</version>
+		</dependency>
+
+	</dependencies>
+</project>
